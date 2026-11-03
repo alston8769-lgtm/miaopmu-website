@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miao.PMU 繆繆紋繡美學 | 台中太平質感霧眉</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Font Awesome 圖示 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入 Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        nude: {
+                            50: '#FDFBF9', 100: '#F5EFEB', 200: '#E6D5CC',
+                            300: '#D4B8AC', 800: '#5C4A42', 900: '#3D312B',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 解決固定導覽列遮擋錨點的問題 */
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+        body { background-color: #FDFBF9; color: #3D312B; overflow-x: hidden; }
+        
+        /* 圖片裁切與動畫魔法 */
+        .img-zoom { 
+            overflow: hidden; 
+            border-radius: 2px;
+            background-color: #F5EFEB;
+        }
+        .img-zoom img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+        }
+        .img-zoom:hover img { 
+            transform: scale(1.05);
+        }
+
+        /* FAQ 手風琴動畫 */
+        .faq-content { transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease; max-height: 0; opacity: 0; padding-top: 0; padding-bottom: 0; overflow: hidden; }
+        .faq-content.open { max-height: 300px; opacity: 1; padding-top: 0.5rem; padding-bottom: 1rem; }
+        .faq-icon { transition: transform 0.3s ease; }
+        .faq-icon.rotate { transform: rotate(45deg); color: #D4B8AC; }
+    </style>
+</head>
+<body class="antialiased selection:bg-nude-200 selection:text-nude-900">
+
+    <!-- 導覽列 -->
+    <nav class="bg-nude-50/95 backdrop-blur-sm fixed w-full top-0 z-50 border-b border-nude-100 transition-all duration-300 shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-serif font-bold tracking-[0.2em] text-nude-900">
+                Miao.PMU
+            </div>
+            <div class="hidden md:flex space-x-10 text-sm tracking-widest text-nude-800 font-medium">
+                <a href="#about" class="hover:text-nude-300 transition duration-300">品牌理念</a>
+                <a href="#portfolio" class="hover:text-nude-300 transition duration-300">精選作品</a>
+                <a href="#process" class="hover:text-nude-300 transition duration-300">服務流程</a>
+                <a href="#faq" class="hover:text-nude-300 transition duration-300">常見問題</a>
+                <a href="#booking" class="hover:text-nude-300 transition duration-300">預約諮詢</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- 主視覺 Hero Banner -->
+        <header class="relative h-[75vh] min-h-[500px] flex flex-col items-center justify-center mt-[72px] bg-gradient-to-b from-[#3D312B] to-[#251E1A] text-white">
+            <div class="relative z-10 text-center px-6">
+                <p class="text-xs md:text-sm tracking-[0.4em] mb-6 text-nude-300 uppercase">Semi-Permanent Makeup Artistry</p>
+                <h1 class="text-4xl md:text-6xl font-serif mb-8 leading-tight font-medium tracking-wider">細緻刻劃，定格原生之美</h1>
+                <p class="text-base md:text-lg font-light tracking-widest mb-12 max-w-2xl mx-auto text-nude-100 opacity-80 leading-loose">
+                    專屬客製化眉型設計<br>讓您每一天的早晨，都能從容自信地醒來。
+                </p>
+                <a href="#booking" class="inline-block bg-white text-nude-900 px-10 py-4 font-serif tracking-[0.2em] hover:bg-nude-200 transition duration-300 shadow-xl text-sm">
+                    VIEW APPOINTMENT
+                </a>
+            </div>
+            <!-- 向下滑動提示 -->
+            <div class="absolute bottom-10 animate-bounce text-nude-300 opacity-60 text-xl">
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
+        </header>
+
+        <!-- 期間限定 Campaign -->
+        <div class="bg-nude-900 text-nude-100 py-3 text-center text-xs tracking-widest font-light border-t border-[#4A3C35]">
+            <span class="text-nude-300 mr-2">✦</span> 2026 期間限定：徵求 3 位霧眉模特兒（免收費），詳情請見下方預約專區 <span class="text-nude-300 ml-2">✦</span>
+        </div>
+
+        <!-- 品牌理念與關於藝術家 -->
+        <section id="about" class="py-24 max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="w-full md:w-1/2 img-zoom h-[550px] shadow-lg">
+                    <!-- 真實副檔名為 .jpg -->
+                    <img src="DFFF57C9-7430-4EFA-9CBA-BB1E12B36B0A.jpg" alt="紋繡師工作日常" class="object-[50%_25%]">
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-4xl font-serif text-nude-900 mb-4 tracking-wider">About Miao.</h2>
+                    <div class="w-12 h-1 bg-nude-300 mb-8"></div>
+                    <h3 class="text-xl text-nude-900 font-serif mb-6 tracking-widest font-medium">07 年專屬紋繡師，顛覆傳統美學</h3>
+                    <p class="text-nude-800 font-light leading-loose mb-8 text-[15px] text-justify">
+                        哈囉，我是繆繆。作為千禧世代的紋繡師，我更懂您對「自然、不結厚痂、不蠟筆小新」的渴望。<br><br>
+                        許多人擔心霧眉會顯得老氣或生硬，在 Miao.PMU，我們拒絕套用死板的公版眉型。結合對面部骨骼比例的鑽研，我致力於為每一位顧客量身定製最貼合個人氣質的專屬眉型，為您打造日常的高級素顏感。
+                    </p>
+                    <p class="font-serif text-nude-300 text-xl italic tracking-wide">" Your beauty, effortlessly defined. "</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 三大安心保證 -->
+        <section class="bg-white py-24 border-y border-nude-100">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-serif text-nude-900 mb-3 tracking-wider">Our Promises</h2>
+                    <p class="text-nude-300 font-light tracking-widest text-sm">三大安心承諾，為您的美麗嚴格把關</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="text-center group">
+                        <div class="w-20 h-20 mx-auto bg-nude-50 rounded-full flex items-center justify-center text-nude-800 text-2xl mb-6 shadow-inner transition duration-500 group-hover:bg-nude-200">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </div>
+                        <h3 class="text-lg font-serif text-nude-900 mb-4 tracking-widest">客製化眉型設計</h3>
+                        <p class="text-nude-800 font-light leading-relaxed text-[15px]">不盲從流行，依據您的臉部骨骼與日常妝容習慣，精準測量並設計出專屬黃金比例。</p>
+                    </div>
+                    <div class="text-center group">
+                        <div class="w-20 h-20 mx-auto bg-nude-50 rounded-full flex items-center justify-center text-nude-800 text-2xl mb-6 shadow-inner transition duration-500 group-hover:bg-nude-200">
+                            <i class="fa-solid fa-droplet"></i>
+                        </div>
+                        <h3 class="text-lg font-serif text-nude-900 mb-4 tracking-widest">SGS 認證合格色料</h3>
+                        <p class="text-nude-800 font-light leading-relaxed text-[15px]">嚴選頂級植物性色乳，通過國際安全檢驗。後期留色自然，絕對不泛紅、不變藍。</p>
+                    </div>
+                    <div class="text-center group">
+                        <div class="w-20 h-20 mx-auto bg-nude-50 rounded-full flex items-center justify-center text-nude-800 text-2xl mb-6 shadow-inner transition duration-500 group-hover:bg-nude-200">
+                            <i class="fa-solid fa-shield-virus"></i>
+                        </div>
+                        <h3 class="text-lg font-serif text-nude-900 mb-4 tracking-widest">醫療級拋棄式針具</h3>
+                        <p class="text-nude-800 font-light leading-relaxed text-[15px]">堅持一人一套拋棄式耗材，當面拆封、絕不重複使用。嚴格落實無菌衛生管理。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 真實作品集區塊 Portfolio -->
+        <section id="portfolio" class="bg-nude-50 py-24">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-20">
+                    <h2 class="text-3xl font-serif text-nude-900 mb-3 tracking-wider">Selected Works</h2>
+                    <p class="text-nude-300 font-light tracking-widest text-sm">精選真實案例，看見改變的細節</p>
+                </div>
+
+                <!-- 案例一：客製化霧眉 -->
+                <div class="bg-white p-8 md:p-14 shadow-lg rounded-sm mb-16 border border-nude-100">
+                    <div class="flex flex-col md:flex-row gap-12 items-center">
+                        <div class="w-full md:w-1/2 grid grid-cols-2 gap-3">
+                            <div class="img-zoom col-span-2 h-[420px]">
+                                <!-- 真實副檔名為 .png -->
+                                <img src="EA287E60-2119-4A53-920A-20654E72A976.png" alt="霧眉對比照" class="object-center">
+                            </div>
+                            <div class="img-zoom h-[220px]">
+                                <!-- 真實副檔名為 .png -->
+                                <img src="8E3F40FB-37E8-469D-B4EE-1DC9232820DE.png" alt="霧眉設計特寫" class="object-[50%_45%]">
+                            </div>
+                            <div class="img-zoom h-[220px]">
+                                <!-- 真實副檔名為 .png -->
+                                <img src="CE3B81BD-3441-4262-9975-EE356FB9494C.png" alt="霧眉完成特寫" class="object-[50%_40%]">
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2 flex flex-col justify-center">
+                            <span class="text-xs tracking-[0.2em] text-nude-800 border border-nude-200 px-4 py-1 rounded-sm mb-6 inline-block w-max uppercase">Women's Brows</span>
+                            <h3 class="text-3xl font-serif text-nude-900 mb-6 tracking-wide">客製化霧眉 <span class="font-light text-xl text-nude-300 mx-2">|</span> 專屬柔霧感</h3>
+                            <ul class="text-nude-800 font-light leading-relaxed mb-8 space-y-3 list-none">
+                                <li><i class="fa-solid fa-check text-nude-300 mr-2 text-xs"></i> 自然留白感眉型設計</li>
+                                <li><i class="fa-solid fa-check text-nude-300 mr-2 text-xs"></i> 輕霧、柔和、無尷尬期</li>
+                                <li><i class="fa-solid fa-check text-nude-300 mr-2 text-xs"></i> 專屬妳的日常高級素顏感</li>
+                            </ul>
+                            <div class="border-t border-nude-100 pt-6 mb-8">
+                                <p class="text-nude-900 font-serif text-xl">NT$ 6,000</p>
+                                <p class="text-nude-300 text-xs tracking-widest mt-1">包含術後專屬修護包及三個月內免費補色一次</p>
+                            </div>
+                            <a href="#booking" class="w-max text-nude-900 font-medium tracking-widest border-b border-nude-900 pb-1 hover:text-nude-300 hover:border-nude-300 transition duration-300 text-sm">預約此項目 &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 案例二：男士飄眉 -->
+                <div class="bg-white p-8 md:p-14 shadow-lg rounded-sm flex flex-col-reverse md:flex-row gap-12 items-center border border-nude-100">
+                    <div class="w-full md:w-1/2 flex flex-col justify-center">
+                        <span class="text-xs tracking-[0.2em] text-nude-800 border border-nude-200 px-4 py-1 rounded-sm mb-6 inline-block w-max uppercase">Men's Brows</span>
+                        <h3 class="text-3xl font-serif text-nude-900 mb-6 tracking-wide">男士野生飄眉 <span class="font-light text-xl text-nude-300 mx-2">|</span> 隱形顏值加分</h3>
+                        <p class="text-nude-800 font-light leading-loose mb-8 text-[15px]">
+                            眉毛是男生最低調的顏值加分項。<br>
+                            我們順著原生毛流生長方向，一根一根精細刻畫自然線條。不粗獷、不厚重，完美保留男士專屬的清爽與空氣感，宛若天生。
+                        </p>
+                        <div class="border-t border-nude-100 pt-6 mb-8">
+                            <p class="text-nude-900 font-serif text-xl">NT$ 7,500</p>
+                            <p class="text-nude-300 text-xs tracking-widest mt-1">包含術後專屬修護包及三個月內免費補色一次</p>
+                        </div>
+                        <a href="#booking" class="w-max text-nude-900 font-medium tracking-widest border-b border-nude-900 pb-1 hover:text-nude-300 hover:border-nude-300 transition duration-300 text-sm">預約此項目 &rarr;</a>
+                    </div>
+                    <div class="w-full md:w-1/2 grid grid-cols-2 gap-3">
+                        <div class="img-zoom col-span-2 h-[420px]">
+                            <!-- 真實副檔名為 .jpg -->
+                            <img src="721F7CD2-2F42-47E9-AB1A-1851E3C8BED5.jpg" alt="男士飄眉對比" class="object-[50%_15%]">
+                        </div>
+                        <div class="img-zoom h-[220px]">
+                            <!-- 真實副檔名為 .png -->
+                            <img src="989F0BCA-0BF6-4CD5-B3D8-66B82F3C2B40.png" alt="男士飄眉施作側拍" class="object-[50%_30%]">
+                        </div>
+                        <div class="img-zoom h-[220px]">
+                            <!-- 真實副檔名為 .jpg -->
+                            <img src="11ABF21F-770B-4B60-9BEF-4EC80E38DD4D.jpg" alt="男士飄眉特寫" class="object-[50%_45%]">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-16">
+                    <a href="https://www.instagram.com/miao._miao23/" target="_blank" class="inline-block border border-nude-800 text-nude-800 px-8 py-3 hover:bg-nude-800 hover:text-white transition duration-300 tracking-widest text-sm">
+                        <i class="fa-brands fa-instagram mr-2"></i>前往 Instagram 查看更多作品
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 服務流程 -->
+        <section id="process" class="py-24 max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-serif text-nude-900 mb-3 tracking-wider">Service Process</h2>
+                <p class="text-nude-300 font-light tracking-widest text-sm">尊榮服務流程 (總時長約 2.5 - 3 小時)</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="text-center bg-white p-10 shadow-sm border border-nude-100 hover:shadow-md transition duration-300">
+                    <span class="block text-5xl font-serif text-nude-200 mb-6 opacity-40">01</span>
+                    <h4 class="font-bold text-nude-900 mb-3 tracking-widest text-lg">專業溝通諮詢</h4>
+                    <p class="text-[15px] font-light text-nude-800 leading-relaxed">仔細了解您的日常妝容習慣與喜好，並進行膚況與骨骼評估。</p>
+                </div>
+                <div class="text-center bg-white p-10 shadow-sm border border-nude-100 hover:shadow-md transition duration-300">
+                    <span class="block text-5xl font-serif text-nude-200 mb-6 opacity-40">02</span>
+                    <h4 class="font-bold text-nude-900 mb-3 tracking-widest text-lg">專屬眉型設計</h4>
+                    <p class="text-[15px] font-light text-nude-800 leading-relaxed">根據臉型精準畫眉定型，雙方溝通調整至 100% 滿意才開始操作。</p>
+                </div>
+                <div class="text-center bg-white p-10 shadow-sm border border-nude-100 hover:shadow-md transition duration-300">
+                    <span class="block text-5xl font-serif text-nude-200 mb-6 opacity-40">03</span>
+                    <h4 class="font-bold text-nude-900 mb-3 tracking-widest text-lg">無痛舒緩操作</h4>
+                    <p class="text-[15px] font-light text-nude-800 leading-relaxed">全程使用專用舒緩膏與拋棄式微創針具，享受放鬆的變美時光。</p>
+                </div>
+                <div class="text-center bg-white p-10 shadow-sm border border-nude-100 hover:shadow-md transition duration-300">
+                    <span class="block text-5xl font-serif text-nude-200 mb-6 opacity-40">04</span>
+                    <h4 class="font-bold text-nude-900 mb-3 tracking-widest text-lg">術後保養衛教</h4>
+                    <p class="text-[15px] font-light text-nude-800 leading-relaxed">提供專屬修護包，並詳細說明回家後的照顧方式與補色須知。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 常見問題 FAQ -->
+        <section id="faq" class="py-24 bg-white border-y border-nude-100">
+            <div class="max-w-3xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-serif text-nude-900 mb-3 tracking-wider">FAQ</h2>
+                    <p class="text-nude-300 font-light tracking-widest text-sm">預約前常見問題須知</p>
+                </div>
+                
+                <div class="space-y-2">
+                    <div class="border-b border-nude-100">
+                        <button class="faq-btn w-full text-left flex justify-between items-center py-5 focus:outline-none text-nude-900 font-medium tracking-wide">
+                            <span class="text-lg">Q1. 霧眉過程會痛嗎？</span>
+                            <i class="fa-solid fa-plus faq-icon"></i>
+                        </button>
+                        <div class="faq-content text-nude-800 font-light text-[15px] leading-loose">
+                            操作前我們會敷上專用舒緩膏，多數客人的感受是「完全無痛」或僅有些微「鑷子拔毛」的感覺。因為採用微創技術，許多客人甚至會舒服到睡著喔！
+                        </div>
+                    </div>
+                    <div class="border-b border-nude-100">
+                        <button class="faq-btn w-full text-left flex justify-between items-center py-5 focus:outline-none text-nude-900 font-medium tracking-wide">
+                            <span class="text-lg">Q2. 做完會結厚痂嗎？多久可以碰水化妝？</span>
+                            <i class="fa-solid fa-plus faq-icon"></i>
+                        </button>
+                        <div class="faq-content text-nude-800 font-light text-[15px] leading-loose">
+                            我們採用最新微創皮損技術，屬於「零結痂 / 微結皮」工法。做完當下即是自然的妝感，不會有尷尬的蠟筆小新期。<br>
+                            👉 術後當天即可正常洗臉碰水（避開洗面乳搓揉即可），避開眉毛區域的底妝與保養品即可正常化妝上班。
+                        </div>
+                    </div>
+                    <div class="border-b border-nude-100">
+                        <button class="faq-btn w-full text-left flex justify-between items-center py-5 focus:outline-none text-nude-900 font-medium tracking-wide">
+                            <span class="text-lg">Q3. 所有人都可以做霧眉嗎？ (重要禁忌症)</span>
+                            <i class="fa-solid fa-plus faq-icon"></i>
+                        </button>
+                        <div class="faq-content text-nude-800 font-light text-[15px] leading-loose">
+                            為了您的安全，若您有以下狀況我們將「無法提供服務」：<br>
+                            懷孕中、哺乳期（前六個月）、嚴重蟹足腫體質、嚴重心血管疾病、糖尿病患者、凝血功能異常、眉毛區域有傷口發炎或嚴重痘痘者。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 訂閱電子報表單區塊 -->
+        <section class="bg-nude-50 py-16">
+            <div class="max-w-3xl mx-auto px-6 text-center">
+                <h2 class="text-2xl font-serif text-nude-900 mb-4 tracking-wider">訂閱保養電子報</h2>
+                <p class="text-nude-800 font-light tracking-widest text-[15px] mb-8">留下您的信箱，獲取最新優惠與霧眉保養知識。</p>
+                
+                <form class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-lg mx-auto">
+                    <input 
+                        type="email" 
+                        name="email" 
+                        placeholder="請輸入您的 Email" 
+                        required 
+                        class="w-full sm:w-2/3 px-4 py-3 border border-nude-200 rounded-sm focus:outline-none focus:border-nude-800 focus:ring-1 focus:ring-nude-800 transition text-nude-900 placeholder-nude-300 font-light bg-white"
+                    >
+                    <button 
+                        type="submit" 
+                        class="w-full sm:w-1/3 bg-nude-900 text-white font-medium tracking-widest py-3 px-6 rounded-sm hover:bg-nude-800 transition duration-300"
+                    >
+                        訂閱
+                    </button>
+                </form>
+                <p class="text-xs text-nude-300 mt-4 tracking-widest">我們承諾不會發送垃圾郵件，您可以隨時取消訂閱。</p>
+            </div>
+        </section>
+
+        <!-- 預約與聯絡 (社群連結) -->
+        <section id="booking" class="bg-[#3D312B] py-28 text-center text-white">
+            <div class="max-w-3xl mx-auto px-6">
+                <p class="text-sm tracking-[0.4em] mb-4 text-nude-300">RESERVATION</p>
+                <h2 class="text-4xl font-serif mb-8 tracking-widest">開始預約您的美麗</h2>
+                <div class="w-12 h-[1px] bg-nude-300 mx-auto mb-10"></div>
+                <p class="font-light tracking-widest text-nude-100 mb-2 leading-loose text-sm md:text-base">
+                    Miao.PMU 採「全預約制」，給您專屬的服務時光。<br>
+                    限量 3 位免費霧眉模特兒熱烈招募中，額滿即止。
+                </p>
+                <p class="font-light tracking-widest text-nude-300 mb-14 text-sm">
+                    預約諮詢、確認空檔時間，請直接私訊官方社群：
+                </p>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-6">
+                    <a href="https://www.instagram.com/miao._miao23/" target="_blank" class="flex items-center justify-center gap-3 bg-white text-nude-900 hover:bg-nude-200 font-serif tracking-widest py-4 px-10 transition duration-300 shadow-lg text-sm font-bold">
+                        <i class="fa-brands fa-instagram text-lg"></i> INSTAGRAM 私訊
+                    </a>
+                    <a href="https://www.threads.net/@223_miao" target="_blank" class="flex items-center justify-center gap-3 bg-transparent text-white border border-nude-300 hover:bg-white/10 font-serif tracking-widest py-4 px-10 transition duration-300 text-sm">
+                        <i class="fa-brands fa-threads text-lg"></i> THREADS 追蹤
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="bg-white text-nude-800 py-16 border-t border-nude-200">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+            <div>
+                <div class="font-serif tracking-widest font-bold text-2xl mb-2 text-nude-900">Miao.PMU</div>
+                <div class="text-xs font-light tracking-widest text-nude-300 uppercase">Semi-Permanent Makeup Artistry</div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-8 md:gap-16 text-sm font-light tracking-widest leading-loose">
+                <div>
+                    <p class="font-medium text-nude-900 mb-1">營業資訊</p>
+                    <p>營業時間：10:00 - 20:00</p>
+                    <p>服務方式：全預約制</p>
+                </div>
+                <div>
+                    <p class="font-medium text-nude-900 mb-1">工作室位置</p>
+                    <p>台中市太平區</p>
+                    <p class="text-xs text-nude-300">(預約成功後將提供詳細地址與交通資訊)</p>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto px-6 mt-12 pt-6 border-t border-nude-200 text-center">
+            <div class="text-xs font-light tracking-widest opacity-60">&copy; 2026 Miao._miao23 Artistry. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <!-- JavaScript 腳本 -->
+    <script>
+        // FAQ 展開動畫
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqBtns = document.querySelectorAll('.faq-btn');
+            faqBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const icon = this.querySelector('.faq-icon');
+                    
+                    content.classList.toggle('open');
+                    icon.classList.toggle('rotate');
+                    
+                    faqBtns.forEach(otherBtn => {
+                        if (otherBtn !== this) {
+                            otherBtn.nextElementSibling.classList.remove('open');
+                            otherBtn.querySelector('.faq-icon').classList.remove('rotate');
+                        }
+                    });
+                });
+            });
+        });
+
+        // 本地 AI 串接示範
+        async function askLocalAI(question) {
+            const localApiUrl = 'http://127.0.0.1:11434/api/generate';
+            try {
+                console.log("正在發送問題給本地 AI:", question);
+                const response = await fetch(localApiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        model: 'llama3', 
+                        prompt: question,
+                        stream: false
+                    })
+                });
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const data = await response.json();
+                console.log("本地 AI 回覆:", data.response);
+                return data.response;
+            } catch (error) {
+                console.error("無法連線到本地 AI：", error);
+                return "很抱歉，目前客服機器人休息中，請透過 IG 私訊我們。";
+            }
+        }
+        window.askLocalAI = askLocalAI;
+    </script>
+</body>
+</html>
